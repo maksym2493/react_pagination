@@ -70,10 +70,10 @@ export const Pagination: React.FC<Props> = ({
 
         <li
           className={cn('page-item', {
-            disabled: currentPage === pages.at(-1),
+            disabled: currentPage === pages[pages.length - 1],
           })}
           onClick={() => {
-            if (currentPage !== pages.at(-1)) {
+            if (currentPage !== pages[pages.length - 1]) {
               onPageChange(currentPage + 1);
             }
           }}
@@ -83,7 +83,7 @@ export const Pagination: React.FC<Props> = ({
             className="page-link"
             href="#next"
             onClick={event => event.preventDefault()}
-            aria-disabled={currentPage === pages.at(-1)}
+            aria-disabled={currentPage === pages[pages.length - 1]}
           >
             »
           </a>

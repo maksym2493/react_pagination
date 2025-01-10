@@ -6,8 +6,8 @@ import './App.css';
 import { Pagination } from './components/Pagination';
 
 const TOTAL = 42;
-const PAGE_DEAFAULT = 1;
-const PER_PAGE_DEAFAULT = 5;
+const PAGE_DEFAULT = 1;
+const PER_PAGE_DEFAULT = 5;
 
 export const App: React.FC = () => {
   const navigate = useNavigate();
@@ -16,11 +16,11 @@ export const App: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
 
   const [page, setPage] = useState(
-    parseInt(queryParams.get('page') || `${PAGE_DEAFAULT}`),
+    parseInt(queryParams.get('page') || `${PAGE_DEFAULT}`),
   );
 
   const [perPage, setPerPage] = useState(
-    parseInt(queryParams.get('perPage') || `${PER_PAGE_DEAFAULT}`),
+    parseInt(queryParams.get('perPage') || `${PER_PAGE_DEFAULT}`),
   );
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export const App: React.FC = () => {
   }, [page, perPage, navigate]);
 
   const changeItemsCount = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setPage(PAGE_DEAFAULT);
+    setPage(PAGE_DEFAULT);
     setPerPage(+event.currentTarget.value);
   };
 
